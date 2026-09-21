@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Little Question ❤️</title>
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#16001f,#5b0b45,#16001f);
+  font-family:Arial,sans-serif;
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+.card{
+  width:85%;
+  max-width:500px;
+  padding:40px 25px;
+  border-radius:30px;
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(15px);
+  box-shadow:0 0 40px rgba(255,70,180,.3);
+}
+.heart{
+  font-size:60px;
+  animation:pulse 1.2s infinite;
+}
+@keyframes pulse{
+  50%{transform:scale(1.15)}
+}
+h1{
+  font-size:38px;
+}
+p{
+  color:#ffd9ed;
+  font-size:17px;
+}
+button{
+  border:0;
+  border-radius:30px;
+  padding:15px 28px;
+  margin:8px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+#yes{
+  background:#ff4fa3;
+  color:white;
+  box-shadow:0 5px 20px #ff4fa366;
+}
+#no{
+  background:#ffffff18;
+  color:white;
+  border:1px solid #ffffff55;
+}
+#message{
+  margin-top:15px;
+  color:#ffb6dc;
+  font-weight:bold;
+}
+#success{
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div id="question">
+<div class="heart">🫶</div>
+
+<h1>Can I steal your heart again? 🫶</h1>
+
+<p>Choose carefully... 👀❤️</p>
+
+<button id="yes">YES ❤️</button>
+<button id="no">NO 😭</button>
+
+<div id="message"></div>
+</div>
+
+<div id="success">
+<div class="heart">💗</div>
+<h1>YAY! 🥹❤️</h1>
+<p>You made the right choice. 🫶</p>
+</div>
+
+</div>
+
+<script>
+let no=document.getElementById("no");
+let yes=document.getElementById("yes");
+let message=document.getElementById("message");
+let question=document.getElementById("question");
+let success=document.getElementById("success");
+
+let dodges=0;
+
+no.onclick=function(){
+
+  dodges++;
+
+  if(dodges>=3){
+    no.style.display="none";
+    message.innerHTML="Okay... NO has disappeared 😂❤️";
+    return;
+  }
+
+  let x=(Math.random()*240)-120;
+  let y=(Math.random()*140)-70;
+
+  no.style.transform="translate("+x+"px,"+y+"px)";
+
+  message.innerHTML="You can't catch the NO button 😂";
+};
+
+yes.onclick=function(){
+  question.style.display="none";
+  success.style.display="block";
+};
+</script>
+
+</body>
+</html>
